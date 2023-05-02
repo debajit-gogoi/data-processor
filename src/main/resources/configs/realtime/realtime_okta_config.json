@@ -1,0 +1,28 @@
+{
+  "appName": "RealTimeDriverOkta",
+  "sessionType": "local[*]",
+  "process": {
+    "OKTA_ACCOUNT": {
+      "class": "com.debajit.dataProcessor.processor.realtimeFetch.BasicReal",
+      "input": [
+        {
+          "format": "okta",
+          "alias": "okta",
+          "url": "https://debajit.okta.com",
+          "token": "",
+          "max_minutes_per_trigger": "5",
+          "schema": "okta",
+          "schema_location": "src/main/resources/schema",
+          "batch_size": "2000"
+        }
+      ],
+      "query": "select * from okta",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        }
+      ]
+    }
+  }
+}

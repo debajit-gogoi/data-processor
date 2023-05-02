@@ -1,0 +1,8 @@
+{
+  "bootstrap.server": "pkc-4k6xm.us-east-1.aws.confluent.cloud:9092",
+  "topic.name": "skiff-nextgen-slack",
+  "security.protocol": "SASL_SSL",
+  "sasl.mechanism": "PLAIN",
+  "sasl.username": "***",
+  "sasl.password": "***"
+}

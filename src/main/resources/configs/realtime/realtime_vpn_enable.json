@@ -1,0 +1,13 @@
+{
+  "process": {
+    "actions": {
+      "VPNLog": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "2 second",
+          "checkpoint_dir": "checkpoints/vpn"
+        }
+      }
+    }
+  }
+}

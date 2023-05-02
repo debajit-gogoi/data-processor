@@ -1,0 +1,13 @@
+{
+  "process": {
+    "actions": {
+      "OKTA_ACCOUNT": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "1 minute",
+          "checkpoint_dir": "checkpoints/okta_raw"
+        }
+      }
+    }
+  }
+}

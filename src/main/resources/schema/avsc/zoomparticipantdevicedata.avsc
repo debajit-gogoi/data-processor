@@ -1,0 +1,18 @@
+{
+  "type":"record",
+  "name":"participantdevice",
+  "namespace":"com.debajit",
+  "fields":[
+    {"name":"joinTime","type":["string","null"]},
+    {"name":"ipAddress","type":["string","null"]},
+    {"name":"device","type":["string","null"]},
+    {"name":"id","type":["string","null"]},
+    {"name":"participantUserId","type":["string","null"]},
+    {"name":"userId","type":["string","null"]},
+    {"name":"userName","type":["string","null"]},
+    {"name":"audioQuality","type":["string","null"]},
+    {"name":"videoQuality","type":["string","null"]},
+    {"name":"meetingId","type":["string","null"]},
+    {"name":"location","type":["string","null"]}
+  ]
+  }

@@ -1,0 +1,189 @@
+{
+  "name": "SizerClusterDetails",
+  "type": "record",
+  "namespace": "com.debajit",
+  "fields": [
+    {
+      "name": "cluster",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "totalNodes",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "rackAwareness",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    {
+      "name": "workloadModel",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "name": "workloadModel_record",
+            "type": "record",
+            "fields": [
+              {
+                "name": "workload",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              {
+                "name": "modelNode",
+                "type": [
+                  "null",
+                  {
+                    "type": "array",
+                    "items": {
+                      "name": "modelNode_record",
+                      "type": "record",
+                      "fields": [
+                        {
+                          "name": "rf",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "nic",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        {
+                          "name": "price",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "btuReq",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "ampsReq",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "modelName",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        {
+                          "name": "weightReq",
+                          "type": [
+                            "null",
+                            "float"
+                          ]
+                        },
+                        {
+                          "name": "numOfNodes",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "uniqueName",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        {
+                          "name": "hddConfigGb",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "memConfigGb",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "numOfBlocks",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "ssdConfigGb",
+                          "type": [
+                            "null",
+                            "int"
+                          ]
+                        },
+                        {
+                          "name": "existingModel",
+                          "type": [
+                            "null",
+                            "boolean"
+                          ]
+                        },
+                        {
+                          "name": "blockAwareness",
+                          "type": [
+                            "null",
+                            "boolean"
+                          ]
+                        },
+                        {
+                          "name": "otherNetworkParts",
+                          "type": [
+                            "null",
+                            {
+                              "name": "otherNetworkParts",
+                              "type": "record",
+                              "fields": [
+                                {
+                                  "name": "aiom",
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

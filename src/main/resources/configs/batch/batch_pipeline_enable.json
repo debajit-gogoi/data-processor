@@ -1,0 +1,90 @@
+{
+  "process": {
+    "actions": {
+      "SNOWFLAKE": {
+        "isEnabled": "true",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "OKTA": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "SALESFORCE": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "KAFKA": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "ELASTIC": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "MONGO": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "S3": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "POSTGRES": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "REDIS": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "ADX": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "BIGQUERY": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "false"
+        }
+      },
+      "ADLS": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "PRACTICE_GA": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "RDB": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      }
+    }
+  }
+}

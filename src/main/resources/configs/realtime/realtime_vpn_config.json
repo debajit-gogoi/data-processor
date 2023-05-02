@@ -1,0 +1,53 @@
+{
+  "appName": "VPNLogProcessing",
+  "sessionType": "local[*]",
+  "process": {
+    "VPNLog": {
+      "class": "com.debajit.dataProcessor.processor.realtimeFetch.BasicReal",
+      "input": [
+        {
+          "format": "kafka",
+          "bootstrap_servers": "",
+          "group_id": "",
+          "data_format": "text",
+          "topic": "",
+          "offsets_per_trigger": "10000",
+          "alias": "vpn",
+          "is_ssL_enabled": "true",
+          "user": "",
+          "password": ""
+        }
+      ],
+      "query": "query ",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "pipeline": "geoip",
+          "port": "9200",
+          "wan_only": "true",
+          "nodes": "",
+          "index": "syslog",
+          "user": "",
+          "password": ""
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process where Stage like 'login' or Stage like 'logout'",
+          "upsert": "upsert",
+          "wan_only": "true",
+          "port": "9200",
+          "mapping_id": "sourceUser",
+          "nodes": "",
+          "index": "logindata",
+          "user": "",
+          "password": ""
+        }
+      ]
+    }
+  }
+}

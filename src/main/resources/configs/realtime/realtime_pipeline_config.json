@@ -1,0 +1,166 @@
+{
+  "appName": "RealTimeDriver",
+  "sessionType": "local[*]",
+  "process": {
+    "SFDC_ACCOUNT": {
+      "class": "com.debajit.dataProcessor.processor.realtimeFetch.BasicReal",
+      "input": [
+        {
+          "format": "sfdc",
+          "alias": "salesforce",
+          "url": "https://test.salesforce.com",
+          "user": "",
+          "password": "",
+          "token": "",
+          "table": "campaignmember",
+          "columns": "id,isdeleted,campaignid,leadid,contactid,status,hasresponded,createddate,createdbyid,lastmodifieddate,lastmodifiedbyid,systemmodstamp,firstrespondeddate,salutation,name,firstname,lastname,title,street,city,state,postalcode,country,email,phone,fax,mobilephone,description,donotcall,hasoptedoutofemail,hasoptedoutoffax,leadsource,companyoraccount,type,leadorcontactid,leadorcontactownerid,net_new__c,cfcr_infer_fit_score_1_100_on_create__c,reporting_matched_account_open_pipe__c,partner_status__c,community_invite_code__c,sso_status__c,lead_contact_status__c,t_shirt_size__c,annual_revenue_range__c,last_checkin__c,hardware_model__c,type_of_deployment__c,number_of_nodes__c,converted_to_opp__c,tracking_number__c,fcrm__fcr_18_character_id__c,utm_source2__c,total_amount_of_sales__c,g2000_ranking__c,fcrm__fcr_admin_opportunity_status__c,fcrm__fcr_admin_response_control__c,fcrm__fcr_admin_response_day__c,fcrm__fcr_admin_syncpending__c,fcrm__fcr_admin_synctest__c,fcrm__fcr_admin_update_counter__c,fcrm__fcr_campaign_repeat_parent__c,fcrm__fcr_cascadeid__c,fcrm__fcr_closedoprevenuemodel1__c,fcrm__fcr_closedoprevenuemodel2__c,fcrm__fcr_closedoprevenuemodel3__c,fcrm__fcr_converted_lead__c,fcrm__fcr_current_lead_contact_status__c,fcrm__fcr_dated_opportunity_amount__c,fcrm__fcr_fccrm_logo__c,fcrm__fcr_first_owner_assigned__c,fcrm__fcr_first_owner_type__c,fcrm__fcr_first_owner_worked__c,fcrm__fcr_first_queue_assigned__c,fcrm__fcr_inquiry_target_date__c,fcrm__fcr_inquiry_target__c,fcrm__fcr_inquiry_to_mqr__c,fcrm__fcr_last_modified_by_date_formula__c,fcrm__fcr_last_modified_by_formula__c,fcrm__fcr_lead_contact_18_digit_id__c,fcrm__fcr_lostoprevenuemodel1__c,fcrm__fcr_lostoprevenuemodel2__c,fcrm__fcr_lostoprevenuemodel3__c,fcrm__fcr_mqr_to_sar__c,fcrm__fcr_member_type_on_create__c,fcrm__fcr_name_created_date__c,fcrm__fcr_non_response_audit__c,fcrm__fcr_nurture_timeout__c,fcrm__fcr_openoprevenuemodel1__c,fcrm__fcr_openoprevenuemodel2__c,fcrm__fcr_openoprevenuemodel3__c,fcrm__fcr_opportunity_amount__c,fcrm__fcr_opportunity_cleared__c,fcrm__fcr_opportunity_closed_date__c,fcrm__fcr_opportunity_closed_won__c,fcrm__fcr_opportunity_closed__c,fcrm__fcr_opportunity_count__c,fcrm__fcr_opportunity_create_date__c,fcrm__fcr_opportunity_created_by__c,fcrm__fcr_opportunity_response_error__c,fcrm__fcr_opportunity_value_lost__c,fcrm__fcr_opportunity_value_won__c,fcrm__fcr_opportunity__c,fcrm__fcr_original_campaign__c,fcrm__fcr_precedence_campaign__c,fcrm__fcr_precedence_replaced_date__c,fcrm__fcr_precedence_response_link__c,fcrm__fcr_precedence_response__c,fcrm__fcr_qr_date__c,fcrm__fcr_qr__c,fcrm__fcr_repeat_count__c,fcrm__fcr_replaced_campaign__c,fcrm__fcr_replaced_response_link__c,fcrm__fcr_replaced_response__c,fcrm__fcr_response_date__c,fcrm__fcr_response_engagement_level__c,fcrm__fcr_response_score__c,fcrm__fcr_response_status__c,fcrm__fcr_revenue_timestamp__c,fcrm__fcr_sar_date__c,fcrm__fcr_sar_owner__c,fcrm__fcr_sar__c,fcrm__fcr_sar_to_sqr__c,fcrm__fcr_sqr_date__c,fcrm__fcr_sqr_won__c,fcrm__fcr_sqr__c,fcrm__fcr_sqr_to_closed_won__c,fcrm__fcr_status_age__c,fcrm__fcr_status_last_set__c,fcrm__fcr_superpower_field__c,fcrm__fcr_tqr__c,fcrm__fcr_totaloprevenuemodel1__c,fcrm__fcr_totaloprevenuemodel2__c,fcrm__fcr_totaloprevenuemodel3__c,fcrm__fcr_view_response__c,fcrm__opportunity_value_open__c,cfcr_actionable__c,cfcr_admin_defective_member__c,cfcr_count__c,cfcr_created_by_formula__c,cfcr_current_stage_in_funnel_date__c,cfcr_current_stage_in_funnel__c,cfcr_fccrm_threshold_current__c,cfcr_fccrm_threshold_on_create__c,cfcr_inquiry_to_close_wd__c,cfcr_inquiry_to_mql_wd__c,cfcr_last_interesting_moment_date__c,cfcr_last_interesting_moment_desc__c,cfcr_last_interesting_moment_source__c,cfcr_last_interesting_moment_type__c,cfcr_last_interesting_moment__c,cfcr_lead_score_on_create__c,cfcr_lead_score_on_update__c,cfcr_lead_source_formula__c,cfcr_mql_to_sal_wd__c,cfcr_manual_adjustment_notes__c,cfcr_manual_adjustment__c,cfcr_opportunity_18_digit_id__c,cfcr_opportunity_stage__c,cfcr_opportunity_type__c,cfcr_original_referrer__c,cfcr_original_search_engine__c,cfcr_original_search_phrase__c,cfcr_original_source_type__c,cfcr_sal_to_sql_wd__c,cfcr_sql_to_closed_won_wd__c,cfcr_srl_date__c,cfcr_srl__c,cfcr_still_in_inquiry__c,cfcr_still_in_mql__c,cfcr_still_in_sal__c,cfcr_still_in_sql__c,converted_date__c,country__c,lattice_lead_grade_on_create__c,lattice_lead_grade_on_update__c,lattice_lead_score_on_create__c,lattice_lead_score_on_update__c,lead_score_current__c,meeting_date__c,region_sub_region__c,sal_to_sql__c,sql_date__c,sql__c,sql_to_won__c,segment__c,status_detail__c,still_in_sql__c,theater__c,utm_campaign__c,utm_medium__c,utm_source__c,utm_term__c,matched_account_industry__c,annual_revenue__c,membercreateddate__c,tt_itda_watch__tech_target_import_timestamp__c,contact_lead_mops_notes__c,cfcr_infer_fit_score_1_100_on_update__c,sales_rep__c,sales_rep_address__c,cfcr_infer_fit_score_on_create__c,cfcr_infer_fit_score_on_update__c,cfcr_infer_score_snapshot__c,additional_notes__c,xgapp_child__c,xgapp_parent__c,event_promotion_code__c,attendee_type__c,registration_type__c,pernix_record_id__c,utm_keyword__c,fcrm__fcr_reactivation_date__c,member_theater__c,member_region__c,member_subregion__c,member_account_type__c,promo_type__c,promo_owner__c,customer_promo_eligible__c,number_of_employees_global__c,ebc_ww_target_account__c,siftrock_reply_date__c,siftrock_reply_text__c,account_type__c,lead_contact_account_partner_status__c,campemail__c,dq_checkbox__c,promo_types__c,matched_account_name__c,matched_account_id__c,utm_source_mops__c,number_of_active_opportunities__c,number_of_active_deal_reg__c,total_amount_of_sales_in_hierarchy__c,op_job_level__c,op_job_function__c,op_persona__c,op_it_job_sub_function__c,utm_search_term__c,member_account_type_on_create__c,conversion_optimized__c,lead_contact_status_picklist__c,fy18_xgap_classification__c,configurations__c,shipping_address__c,shipping_city__c,shipping_country__c,shipping_postal_code__c,shipping_state_province__c,sales_rep_email__c,sendoso_sales_rep_email__c,sendoso_sales_rep__c,sendoso_send_date__c,shipping_address_2__c,partner_rep_email__c,partner_sales_rep__c,next_alumni__c,marketing_campaign_member_type__c,mql_checkbox_date__c,mql_checkbox__c,passed_to_inside_sales_date__c,passed_to_inside_sales__c,account_segmentation__c,named_vs_non_named__c,assigned_owner_stamp__c,assigned_owner_job_role_stamp__c,lead_contact_owner_job_role__c,mtn_date__c,funnel_type__c,funnel_follow_up_status__c,lead_contact_status_upon_response__c,passed_to_outside_sales_date__c,active_funnel_lifespan__c,mtn__c,still_in_outside_sales__c,passed_to_outside_sales__c,current_active_funnel__c,track_date_time_for_report__c,marketing_initiative_notes__c,campaign_type__c,matched_account_owner_name__c,marketing_lead_contact_type__c,beam_account_state__c,beam_activation__c,campaign_member_account_type_stamp__c,lead_contact_behavior_score__c,lead_contact_firmographic_score__c,lead_contact_fit_score__c,leandata_processing__c,lead_contact_overall_score__c,most_recent_qualifying_campaign__c,mql_checkbox_datetime__c,named_account_type__c,pis_datetime__c,prospecting_datetime__c,sal_meeting_datetime__c,cfcr_sql_datetime__c,total_number_of_touches_since_open__c,won_datetime__c,backpopulated_sal__c,currencyisocode,partner_account__c,tenant_name__c,update_xi_campaign_status__c,xi_activation__c,xi_request_update__c,cell_fqdn__c,cfcr_meets_mql_definition__c,mql_date_set__c,prospecting_date_set__c,sal_date_set__c,utm_experience__c,hardware_type__c,service_type__c,tenanttype__c,explicit_opt_in__c,pis_fiscal_week__c,pis_qtr_year__c,prospecting_fiscal_week__c,prospecting_qtr_year__c,sal_fiscal_week__c,sal_qtr_year__c,actively_being_sequenced__c,name_of_currently_active_sequence__c,fiscal_week__c,current_lead_contact_status_detail__c,test_drive_status__c,cfcr_mel__c,cfcr_mel_date__c,positive_meeting__c,opp_created__c,cm_behavior_score__c,opportunity__c",
+          "offset_column": "SystemModStamp",
+          "starting_offset": "2022-07-01T00:00:00Z",
+          "max_offset_days_per_trigger": "7",
+          "support_parallel_fetch": "false",
+          "buffer_size": "10000",
+          "type_of_extraction": "soql",
+          "parallelism": "2",
+          "tmp_storage": "output/salesforce"
+        }
+      ],
+      "query": "select * from salesforce",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        }
+      ]
+    },
+    "OKTA_ACCOUNT": {
+      "class": "com.debajit.dataProcessor.processor.realtimeFetch.BasicReal",
+      "input": [
+        {
+          "format": "okta",
+          "alias": "okta",
+          "url": "https://debajit.okta.com",
+          "token": "",
+          "max_minutes_per_trigger": "5",
+          "schema_location": "src/main/resources/schema",
+          "schema": "okta"
+        }
+      ],
+      "query": "select * from okta",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        }
+      ]
+    },
+    "SFDC_ACCOUNT_DEV": {
+      "class": "com.debajit.dataProcessor.processor.realtimeFetch.BasicReal",
+      "input": [
+        {
+          "format": "sfd",
+          "alias": "salesforce",
+          "url": "https://test.salesforce.com",
+          "user": "",
+          "password": "",
+          "security_token": "",
+          "table_name": "account",
+          "query": "select id,LastModifiedDate from account"
+        }
+      ],
+      "query": "select id,LastModifiedDate from salesforce",
+      "output": [
+        {
+          "query": "select count(*) from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        }
+      ]
+    },
+    "TEST_PROGRESS": {
+      "class": "com.debajit.dataProcessor.processor.realtime.fetch.BasicStreamingReal",
+      "input": [
+        {
+          "format": "kafka",
+          "schema": "test_summary",
+          "commit": "false",
+          "topic": "dummy_test_events",
+          "bootstrap_servers": "",
+          "group_id": "test_summary_consumer_data_processor_1",
+          "offsets_per_trigger": "50",
+          "alias": "test_summary"
+        },
+        {
+          "format": "redis",
+          "host": "",
+          "port": "6379",
+          "auth": "",
+          "timeout": "60000",
+          "table": "active_assignment",
+          "key_column": "key",
+          "alias": "assign",
+          "streaming": "false"
+        }
+      ],
+      "query": "",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        }
+      ]
+    },
+    "KAFKA_REAL": {
+      "class": "com.debajit.dataProcessor.processor.realtime.fetch.BasicReal",
+      "input": [
+        {
+          "format": "kafka",
+          "schema": "",
+          "commit": "false",
+          "topic": "",
+          "bootstrap_servers": "",
+          "group_id": "test",
+          "offsets_per_trigger": "50",
+          "alias": "nqe"
+        },
+        {
+          "format": "redis",
+          "host": "",
+          "port": "6379",
+          "auth": "",
+          "table": "person",
+          "alias": "person"
+        }
+      ],
+      "query": "select * from nqe cross join person",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        }
+      ]
+    },
+    "FILE_REAL": {
+      "class": "com.debajit.dataProcessor.processor.realtime.fetch.BasicReal",
+      "input": [
+        {
+          "format": "file",
+          "source": "s3",
+          "access_key": "",
+          "secret_key": "",
+          "adls_access_key": "",
+          "directoryPath": "",
+          "alias": "fileData"
+        }
+      ],
+      "query": "",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToADLS",
+          "adls_access_key": "",
+          "partition_by": "date,service_name",
+          "adls_path": ""
+        }
+      ]
+    }
+  }
+}

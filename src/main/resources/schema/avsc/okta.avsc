@@ -1,0 +1,649 @@
+{
+  "type": "record",
+  "name": "Okta",
+  "namespace": "com.debajit",
+  "fields": [
+    {
+      "name": "actor",
+      "type": ["null",{
+        "name":"actorRecord",
+        "type": "record",
+        "fields": [
+          {
+            "name": "id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "type",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "alternateId",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "displayName",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "detailEntry",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        ]
+      }],
+      "default": "null"
+    },
+    {
+      "name": "client",
+      "type": ["null",{
+        "name":"clientRecord",
+        "type": "record",
+        "fields": [
+          {
+            "name": "zone",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "device",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "ipAddress",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "userAgent",
+            "type": ["null",{
+              "name":"userAgentRecord",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "rawUserAgent",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "os",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "browser",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              ]
+            }],
+            "default": "null"
+          },
+          {
+            "name": "geographicalContext",
+            "type": ["null",{
+              "name": "geographicalContextRecord",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "city",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "state",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "country",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "postalCode",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "geolocation",
+                  "type": ["null",{
+                    "name": "geolocationRecord",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "lat",
+                        "type": [
+                          "double",
+                          "null"
+                        ]
+                      },
+                      {
+                        "name": "lon",
+                        "type": [
+                          "double",
+                          "null"
+                        ]
+                      }
+                    ]
+                  }],
+                  "default": "null"
+                }
+              ]
+            }],
+            "default": "null"
+          }
+        ]
+      }],
+      "default": "null"
+    },
+    {
+      "name": "device",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "name": "authenticationContext",
+      "type": ["null",{
+        "name": "authenticationContextRecord",
+        "type": "record",
+        "fields": [
+          {
+            "name": "authenticationProvider",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "credentialProvider",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "credentialType",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "interface",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "authenticationStep",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "externalSessionId",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "issuer",
+            "type": ["null",{
+              "name": "issuerRecord",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "type",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              ]
+            }],
+            "default": "null"
+          }
+        ]
+      }],
+      "default": "null"
+    },
+    {
+      "name": "displayMessage",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "name": "eventType",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "name": "outcome",
+      "type": ["null",{
+        "name": "outcomeRecord",
+        "type": "record",
+        "fields": [
+          {
+            "name": "result",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "reason",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        ]
+      }],
+      "default": "null"
+    },
+    {
+      "name": "published",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "name": "securityContext",
+      "type": ["null",{
+        "name": "securityContextRecord",
+        "type": "record",
+        "fields": [
+          {
+            "name": "asNumber",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "asOrg",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "isp",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "domain",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "isProxy",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        ]
+      }],
+      "default": "null"
+    },
+    {
+      "name": "severity",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "name": "debugContext",
+      "type": ["null",{
+        "name": "debugContextRecord",
+        "type": "record",
+        "fields": [
+          {
+            "name": "debugData",
+            "type": ["null",{
+              "name": "debugDataRecord",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "delauthtimeout",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "requestId",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "actionid",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "delauthtimetotal",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "requestUri",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "threatSuspected",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "delauthtimespentatdomaincontroller",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "delauthtimespentatagent",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "name": "url",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              ]
+            }],
+            "default": "null"
+          }
+        ]
+      }],
+      "default": "null"
+    },
+    {
+      "name": "legacyEventType",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "name": "transaction",
+      "type": ["null",{
+        "name": "transactionRecord",
+        "type": "record",
+        "fields": [
+          {
+            "name": "type",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "detail",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        ]
+      }],
+      "default": "null"
+    },
+    {
+      "name": "uuid",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+      "name": "version",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    {
+          "name": "request",
+          "type": ["null",{
+                              "name": "requestRecord",
+                              "type": "record",
+                              "fields": [
+            {
+              "name": "ipChain",
+              "type": ["null",{
+                "type": "array",
+                "items": ["null",{
+                  "name": "ipAddress",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "ip",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "version",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "source",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "geographicalContext",
+                      "type": ["null",{
+                        "name": "geographicalContextRequestRecord",
+                        "type": "record",
+                        "fields": [
+                          {
+                            "name": "city",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          {
+                            "name": "state",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          {
+                            "name": "country",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          {
+                            "name": "postalCode",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          {
+                            "name": "geolocation",
+                            "type": ["null",{
+                              "name": "geolocationRequestRecord",
+                              "type": "record",
+                              "fields": [
+                                {
+                                  "name": "lat",
+                                  "type": [
+                                    "double",
+                                    "null"
+                                  ]
+                                },
+                                {
+                                  "name": "lon",
+                                  "type": [
+                                    "double",
+                                    "null"
+                                  ]
+                                }
+                              ]
+                            }],
+                            "default": "null"
+                          }
+                        ]
+                      }],
+                      "default": "null"
+                    }
+                  ]
+                }
+              ]}
+            ]}
+          ]
+        }
+      ]},
+    {
+      "name": "target",
+      "type": ["null",{
+        "type": "array",
+        "items": ["null",{
+          "name": "ipAddressRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "id",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "name": "type",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "name": "alternateId",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "name": "displayName",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "name": "detailEntry",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          ]
+        }
+      ]}
+    ]}
+  ]
+}

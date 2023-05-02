@@ -1,0 +1,290 @@
+{
+  "appName": "BatchDriver",
+  "sessionType": "local[*]",
+  "process": {
+    "SNOWFLAKE": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "format": "snowflake",
+          "url": "*",
+          "user": "",
+          "password": "",
+          "query": "*",
+          "warehouse": "*",
+          "db_name": "*",
+          "schema": "PUBLIC",
+          "alias": "snowflake"
+        }
+      ],
+      "query": "select * from snowflake",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToKafka",
+          "query": "select * from #process",
+          "topic": "*",
+          "bootstrap_servers": "*",
+          "data_format": "json_connect",
+          "kafka_connect_schema_path": "src/main/resources/schema/kafkaConnect",
+          "kafka_connect_schema": "*"
+        }
+      ]
+    },
+    "SALESFORCE": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "format": "sfd",
+          "buffer_size" :"20000",
+          "parallelism" : "4",
+          "table" : "account",
+          "user" : "",
+          "password" : "",
+          "token" : "",
+          "url" : "https://test.salesforce.com",
+          "columns" : "Id,IsDeleted,MasterRecordId,Name,Type,RecordTypeId,ParentId,BillingStreet,BillingCity,BillingState,BillingPostalCode,BillingCountry,BillingLatitude,BillingLongitude,BillingGeocodeAccuracy,ShippingStreet,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingLatitude,ShippingLongitude,ShippingGeocodeAccuracy,Phone,Fax,AccountNumber,Website,PhotoUrl,Sic,Industry,AnnualRevenue,NumberOfEmployees,Ownership,Description,Site,OwnerId,CreatedDate,CreatedById,LastModifiedDate,LastModifiedById,SystemModstamp,LastActivityDate,LastViewedDate,LastReferencedDate,IsPartner,IsCustomerPortal,Jigsaw,JigsawCompanyId,AccountSource,SicDesc,Elite_Account__c,Account_Segment__c,Account_Theater__c,Account_Balance__c,Account_Overdue_Balance__c,Support_Alert_Msg__c,Celigo_Update__c,Customer_Reference__c,Customer_Reference_Use_Cases__c,Reseller_Agreement_Status__c,Reseller_Tier__c,Reseller_Training_Completed__c,Reseller_Sales_Training_Completed__c,Reseller_Technical_Training_Completed__c,Registered_Opportunities__c,Sales_Engineer__c,Twitter_Handle__c,Global_2000_Rank__c,Reseller__c,Notes_Comments__c,Contract_Start_Date__c,Uploaded_to_NetSuite__c,Account_Id__c,Days_Overdue__c,NS_Sync__c,NetSuite_Id__c,NetSuite_Locked__c,NetSuite_Mapping__c,NetSuite_Pull__c,NetSuite_Push__c,Sync_in_Progress__c,Unbilled_Orders__c,Opp_Level_Reached__c,SBQQ__AssetQuantitiesCombined__c,SBQQ__CoTermedContractsCombined__c,SBQQ__CoTerminationEvent__c,SBQQ__ContractCoTermination__c,SBQQ__DefaultOpportunity__c,SBQQ__PriceHoldEnd__c,SBQQ__RenewalPricingMethod__c,ID_18_Char__c,Fiscal_Year_End__c,NFR_Unit__c,Number_of_Employees__c,contractual_payment_terms__c,Annual_Revenue__c,Incoterms__c,Total_Partner_Certifications__c,Business_Model__c,Estimated_Annual_Storage_Revenue__c,debajit_Partner_Comments__c,Target_Customer_Size__c,IOR_Information_On_File__c,Agreement_Signed_Date__c,Rep_Gut__c,Var_Reach__c,Onboarding_Status_Notes__c,Partner_Territories_Covered__c,Program_Category__c,Partner_Type__c,Partner_Vertical__c,Reps_Tied_To_This_Partner__c,Microsoft_Competencies__c,VMware_Competencies__c,Citrix_Program_Level__c,Splunk__c,Account_Counter__c,Date_Direct_Resell_Agreement_Signed_1_T__c,of_VMware_Certified_Engineers__c,of_Microsoft_Certified_Engineers__c,of_Citrix_Certified_Engineers__c,Key_Sales_Engineering_Contact_Email__c,Key_Sales_Engineering_Contact_Phone__c,Key_Sales_Engineering_Contact_Name__c,Key_Sales_Contact_Name__c,Key_Sales_Contact_Email__c,Key_Sales_Contact_Phone__c,Key_Marketing_Contact_Name__c,Key_Marketing_Contact_Email__c,Key_Marketing_Contact_Phone__c,Partner_Account_Comments__c,Partner__c,Partner_Countries_Covered_M_Z__c,Citrix_Relationship_Type__c,Number_of_Sales_Engineers__c,Number_of_Sales_Reps__c,Number_of_Marketers__c,Partner_level__c,VMware_Partner_Type__c,Onboarding_Status__c,Number_of_Closed_Won_Opportunities__c,Number_of_Open_Opporunities__c,Total_Bookings__c,Total_Pipeline__c,Date_Application_Completed__c,Bookings_Total__c,Opportunity_Pipeline_Amount__c,Preferred_Freight_Method__c,Channel_Marketing_Notes__c,Primary_TAM__c,Secondary_TAM__c,KVM_Competency__c,Agreed_to_Terms_Conditions__c,Partner_Account_Applicant_Email__c,Partner_Account_Applicant_Name__c,Partner_Account_Applicant_Phone__c,Partner_Applicant_Job_Title__c,Veeam_Professionals__c,Agreed_to_DirecReseller__c,Veeam_Partner_Level__c,Partner_Status__c,rtReason_if_Paner_Status_is_Inactive__c,First_Purchase_Date__c,Most_Recent_Sales_Date__c,Number_of_Won_Deals__c,Total_Amount_of_Sales__c,Amount_of_First_Deal__c,Onboarding_Status_Notes_2__c,IOR_Addr_1__c,IOR_Addr_2__c,IOR_City__c,IOR_Company_Namer__c,IOR_Contact_Name__c,IOR_Country__c,IOR_Email__c,IOR_Phone__c,IOR_State__c,IOR_VAT_Number__c,IOR_Zip__c,Attended_Live_NPP_Class__c,Active_Date__c,Authorized_Country__c,Authorized_Country_M_Z__c,debajit_Field_Marketing_Manager__c,debajit_Field_Marketing_Manager_Notes__c,CQ_Bookings__c,NS_Mapping_Subsidiary__c,Preferred_Purchasing_Method__c,Default_Order_Notes__c,Preferred_Distributor__c,Account_Sub_Theater__c,Authorized_Training_Center_ATC__c,Authorized_Service_Provider_ASP__c,First_Repeat_Purchase_Date__c,VCE_Partner_Type__c,VCE_Program_Level__c,NDA_Date_Signed__c,Partner_Agreement_Expiration_Date__c,Partner_Agreement_Signed_Date__c,Partner_Products_Engaged__c,Disty_Focus_Partner__c,Partner_Testing_Certifications__c,Partnership_Stage__c,TA_Partner_Reach__c,Default_Shipping_Notes__c,Date_Plaque_Sent__c,Date_Partner_Application_Sent__c,Key_Marketing_Contact_Title__c,Key_Sales_Contact_Job_Title__c,Key_Sales_Engineering_Contact_Job_Title__c,Dark_Site_Secure_Site__c,Remote_Tunnel_Available__c,Premier_Account__c,Level_Distributor__c,Level_Reseller_Traditional__c,Level_Reseller_Hosted_Services_MSP__c,Closed_Won_NFR_Oppty_Amount__c,Number_of_Closed_Won_NFR_Oppty__c,Partner_Courses__c,Big_Data_Count__c,Big_Data_Skill_Level__c,DBs_Count__c,DBs_Skill_Level__c,Dedicated_Training_Facility__c,ESX_Count__c,ESX_Skill_Level__c,EUC_Other_Count__c,EUC_Other_Skill_Level__c,Exchange_Count__c,Exchange_Skill_Level__c,How_Many_Classes_Per_Year_Do_You_Teach__c,Hyper_V_Count__c,Hyper_V_Skill_Level__c,KVM_Count__c,KVM_Skill_Level__c,Number_Of_Virtualization_Consultants__c,Open_Stack_Count__c,Open_Stack_Skill_Level__c,Products_For_Which_You_Offer_Training__c,SAP_Count__c,SAP_Skill_Level__c,Storage_Count__c,Storage_Skill_Level__c,Total_Number_Of_Consultants__c,VDI_View_Count__c,VDI_View_Skill_Level__c,VDI_XD_Count__c,VDI_XD_Skill_Level__c,Authorized_Consulting_Partner_ACP__c,Account_overview__c,Current_FYTD_Bookings_PID__c,Current_FYTD_Bookings_Total__c,Pipeline_Created_CFQ_PID__c,Pipeline_Created_CFQ_Total__c,Pipeline_Set_to_Close_This_FY_Next_FY_P__c,Pipeline_Set_to_Close_This_FY_Next_FY_T__c,Previous_FY_Bookings_PID__c,Previous_FY_Bookings_Total__c,Recent_PID_Opportunity_Closed__c,Attended_Partner_Summit_Date__c,Previous_FY_PID_of_Total_Bookings__c,Current_FYTD_PID_of_Total_Bookings__c,Pipeline_Created_CFQ_PID_of_Total__c,Pipelin_Closing_This_FY_Next_FY_PID__c,Bookings_Growth_Previous_to_Current_FY__c,Growth_Previous_Current_FY_Total__c,First_Preferred_Distributor__c,Second_Preferred_Distributor__c,Average_Deal_Size_Bookings__c,Average_Deal_Size_Pipe__c,Local_Name__c,System_Integrator_SI__c,Pre_determined_Partner_Portal_Profile__c,Environment_Health_score__c,Influence_score__c,Input_Score__c,AuthorizedDomains__c,BreakAway_Program_Start_Date__c,Solution_Areas__c,Authorized_Partners__c,Grandfathered_for_Licenses__c,Account_PoO__c,Partner_Rank_Theater__c,Partner_Rank_Global__c,Date_Distributor_Election_Form_Sent__c,Date_Distributor_Election_form_Completed__c,Elected_Distributor__c,Number_of_Active_Opportunities__c,Average_Deal_Size__c,Overall_Health__c,Use_Case_2__c,Partner_Email_Domain__c,OEM_Token__c,Enable_Partner_Portal__c,Named_Global_Account__c,Referral__c,Company_Size__c,Vertical__c,LeanData__LD_EmailDomain__c,LeanData__LD_EmailDomains__c,LeanData__Tag__c,Partner_VAT_Number__c,AuthorizedDomainsSummary__c,Legacy_SSD_Drives__c,Location_Type__c,Parent_DUNS_Company_Name__c,Parent_DUNS_Number__c,Ultimate_Parent_DUNS_Company_Name__c,Ultimate_Parent_DUNS_Number__c,debajit_Focus_Partner__c,ADR_Target_Account__c,Lifetime_NFR_Bookings_Total__c,Total_CQ_Bookings__c,Total_Sales_Amount__c,Access_to_Partner_Product_for_Testing__c,Acropolis_Partner__c,Annual_Program_Fee_Fulfilled__c,Communication_Preference__c,Company_HQ_Phone__c,Company_Overview__c,Compliance_Contact_Email__c,Compliance_Contact_Phone__c,Compliance_Contact_Title__c,Compliance_Contact__c,HQ_City__c,HQ_Country__c,HQ_State_Province__c,HQ_Street_Address__c,HQ_Zip_Postal_Code__c,Imported_from_Hoovers__c,R_32_GB_DIMM_Not_Quotable__c,Primary_Contact_Email__c,Primary_Contact_Phone__c,Primary_Contact_Title__c,Primary_Contact__c,Primary_Customer_Segment__c,Primary_Language__c,Selected_Validation_Testing_Method__c,Elevate_Program_Agreement_Canceled_Date__c,TSAnet_Member__c,Vertical_Markets_Covered_Top5__c,Year_Founded__c,of_External_Customer_References__c,Disti_Authorized_Countries__c,Account_Owner_Id__c,Monitored_by_Support__c,Support_Monitored__c,Support_Review_Status__c,RelaywareID__c,SBQQ__IgnoreParentContractedPrices__c,Service_Provider__c,Last_TRM_Transition_Date__c,Order_emails__c,Closed_Won_OEM_Opportunities__c,Listing_on_Partner_Website__c,ReferenceEdge_Attributes__c,LID__LinkedIn_Company_Id__c,NFR_Unit_Number__c,Supported_Hypervisors__c,debajit_Ready_Categories__c,Partner_Program_Level__c,Partner_Program_Agreement_Signed_Date__c,OEM_Vendor__c,OEM_Channel_Partner__c,SBQQ__PreserveBundle__c,SBQQ__RenewalModel__c,Unique_Customer_ID__c,View_All_Web_Activity__c,Webtracker_Page_View__c,Webtracker_Total_View__c,Webtracker_Website_URL__c,Webtracker_Last_Visit_Date__c,RK_State__c,Days_Since_Most_Recent_Purchase__c,XGAPP_Dashboard__c,XGAPP_Slack_Channel__c,Global_Account_Program_Participant__c,Global_Accounts_Participant_Member__c,XGAPP_Child__c,XGAPP_Parent__c,Account_Sub_Region__c,Designated_Support_Engineer_DSE__c,Global_designated_SREs__c,Quoting_Access__c,Change_Restricted__c,VartopiaDRS__Number_of_Active_Registrations__c,VartopiaDRS__Recent_Registration_Date__c,VartopiaDRS__Vartopia_Access__c,Account_Record_Type__c,Is_Test_Account__c,Is_Running_PC__c,ASP_QBR_Rating__c,ASP_Termination_Date__c,debajit_Partner_Global_Account__c,FirstPurchase__c,Last_Opportunity_Owner__c,Sales__c,Profits__c,Assets__c,Market_Value__c,Allow_OEM_case_creation__c,Primary_use_case_count__c,Forbes_G2000_Ranking_Validated__c,Account_Enriched__c,Maximum_capacity_reached_comments__c,Maximum_capacity_reached__c,SRE_Email__c,SRE_Manager_Email__c,Global_Ultimate_Business_Name__c,Global_Ultimate_D_U_N_S_Number__c,Total_NPX_Training_Certs__c,AdvocateHub__Referral_Source__c,G2000_Account__c,Report_this_Account_as_Duplicate__c,Open_Opportunities_Count__c,Phone_Number_Length__c,Pernix_Record_ID__c,Zuora__Active__c,Zuora__CustomerPriority__c,Zuora__NumberofLocations__c,Zuora__SLAExpirationDate__c,Zuora__SLASerialNumber__c,Zuora__SLA__c,Zuora__UpsellOpportunity__c,Infer_Account_Modified_Date__c,Infer_Score__c,Infer_Account_Hash__c,infer_rating__c,Num_Account__c,Customer_Promo_Eligible__c,Customer_Re_engagement_Set_Date__c,Oppty_created_under_accounts__c,RMA_Specific_Instruction__c,Account_Owner_Job_Role__c,Account_Owner_Active__c,DisplayDashboard__c,Global_5000__c,EBC_WW__c,LeanData__Reporting_Has_Opportunity__c,LeanData__Reporting_Total_Leads_and_Contacts__c,Num_of_Customer_Accounts_in_Hierarchy__c,Num_of_Qualified_Contacts__c,Num_of_Qualified_Leads__c,Total_Contacts__c,Total_Leads__c,Num_of_Meetings__c,Num_of_Contact_Responses__c,Num_of_Lead_Responses__c,Num_of_Prospect_Accounts_in_Hierarchy__c,Num_of_Open_Opportunities_in_Hierarchy__c,Amount_of_Open_Oppties_in_Hierarchy__c,Num_of_Qualified_Contacts_in_Hierarchy__c,Num_of_Qualified_Leads_in_Hierarchy__c,Total_Contacts_in_Hierarchy__c,Total_Leads_in_Hierarchy__c,Num_of_Meetings_in_Hierarchy__c,Num_of_Contact_Responses_in_Hierarchy__c,Num_of_Lead_Responses_in_Hierarchy__c,Total_Amount_of_Sales_in_Hierarchy__c,Num_of_HQ_Accounts_in_Hierarchy__c,Num_of_Single_Locations_in_Hierarchy__c,Num_of_Branch_Accounts_in_Hierarchy__c,Website_Pages_Views_in_Hierarchy__c,Website_Visits_in_Hierarchy__c,Closed_Opportunities_Count__c,Has_Had_Opp_Ever__c,EBC_WW_Attended__c,LastClosedWonOpportunityAmount__c,Openprise_Sales_Territory__c,SX_Enabled__c,AssetsTimeZone__c,UseAccountTZ__c,NPN_Contact__c,NPN_Email_Notifier_List__c,NPN_Email_Notifier_Remainder_Sent__c,HasValidContract__c,SI_Name__c,SI_Name_Update__c,GSI_Account_Notes__c,GSI_Account_Notes_Update__c,AOSVersionsFilter__c,AssetAOSVersions__c,Capacity_Threshold__c,Pulse_Campaign_Opt_Out__c,Forecast_Threshold__c,CAP_Escalations_Count__c,FY18_XGAP_Classification__c,Account_Region_owner__c,Account_SubRegion_owner__c,Account_Theater1__c,debajit_Go_Approval_Status__c,National_Partner__c,Install_Base_400_Program_Classification__c,Account_Plan_Count__c,Record_Last_Updated_Account__c,Transfer_to_Other_Rep__c,Account_MITF_Notification_Email__c,Key_Reference_Attribute__c,Reference_Notes__c,Reference_Point_of_Contact__c,GSI_or_FSI__c,Account_Segmentation__c,Rate_Card_Needed__c,Created_from_Deal_Reg__c,Matched_Account_Domain__c,Support_Alert_Expiry__c,Marketing_Account_Type__c,County__c,CSM_Engagement__c,VartopiaDRS__Number_of_Closed_Lost_Registrations__c,VartopiaDRS__Number_of_Closed_Won_Registrations__c,VartopiaDRS__Number_of_Denied_Registrations__c,VartopiaDRS__Number_of_Expired_Registrations__c,VartopiaDRS__Percentage_of_Registrations_Approved__c,VartopiaDRS__Total_Number_of_Registrations__c,debajit__c,Case_Study_URL__c,Translated_Company_Name__c,Date_Partner_Deactivated__c,Created_from_Lead_Conversion__c,VartopiaDRS__Number_of_registrations_Approved_status__c,VartopiaDRS__Registrations_Approved_Status__c,First_Child_Purchase_Date__c,Total_ISV_Bookings_New_Existing_Only__c,Sales_Territory__c,Sales_Rep_Owner_Type__c,Customer_Success_Manager__c,GSI_Account_Priority__c,GSI_Sales__c,GSI_Sourced_Customer__c,SBQQ__TaxExempt__c,Distributor_Email__c,Product_Picklist__c,Whitespace_Target_Account_Quarter__c,Has_ABL_License__c,New_Logo_win_by_GSI__c,SI_Engagement_Status__c,System_Integrator_rep__c,VartopiaDRS__Closed_Lost_Registrations__c,VartopiaDRS__Closed_Won_Registrations__c,VartopiaDRS__Denied_Registrations__c,VartopiaDRS__Expired_Registrations__c,VartopiaDRS__Number_of_Approved_Registrations__c,Market_Segment__c,Customer_Success_Top_100__c,Partner_Zone__c,DSE_Code__c,DSE_Expiry_date__c,Account_Sync_Error__c,Number_of_DQT_Contacts__c,DNBoptimizer__DNB_D_U_N_S_Number__c,DNBoptimizer__DNB_Parent_DUNS__c,DNBoptimizer__DNB_Parent_Name__c,DNBoptimizer__DnBCompanyRecord__c,DNBoptimizer__Family_Tree_Link_Status__c,DNBoptimizer__Is_Duplicate__c,DNBoptimizer__Number_Of_Contact__c,DNBoptimizer__Number_Of_Task__c,DNBoptimizer__NumberofLocations__c,DNBoptimizer__Number_Of_Opportunity__c,iSell__OSKeyID__c,D_B_Annual_Sales_Volume__c,D_B_NAICS_Code__c,D_B_Number_of_Employees__c,D_B_Optimizer_Account__c,D_B_Parent_Business_Name__c,D_B_Parent_D_U_N_S_Number__c,D_B_SIC_Code__c,Number_of_Employees_Override__c,SIC8_Code__c,Elevate_Priority__c,Gartner_Position__c,Marketplace_Addendum__c,Type_of_Elevate_Partner__c,Account_Segmentation_Override__c,Webtracker_IP_Location__c,Webtracker_LastVisitDate__c,Webtracker_Pages_Visited__c,Enabled_for_De_Coupled__c,Global_2000_Rank_Child__c,Named_Account_Type__c,Executive_Sponsor__c,Licenses__c,nde__Node_Primary_Company_Name__c,nde__Node_Primary_Domain__c,nde__Node_Priority__c,nde__Node_Subcategory_Matches__c,nde__Node_Target_Profile__c,nde__Node_Technologies_Found__c,nde__Node_Generated_Formula__c,nde__You_Should_Mention__c,Track_Date_Time_for_Report__c,Sales_Team__c,Territory__c,Territory_in_Sales_Team__c,Internal_Account_Type__c,Acct_Owner_Matches_Territory_Owner__c,Account_Focus_Program_Parent__c,VM_Count__c,Products_Sold_to_Account__c,SE_Solutions_Tracking_Acct__c,New_Account_Request_Status__c,Created_From_Source__c,Channel_Segmentation__c,debajit_TAM_Override__c,TAM_Overridden__c,TAM_Source__c,Ily_AWS_Spend__c,Ily_Azure_Spend__c,Ily_CS_Spend__c,Ily_Cloud_Spend__c,Ily_Intricately_URL__c,ChannelProgramLevelName,Account_MultiSubRegion__c,Partner_Locator__c,Global_Account_Name__c,CSV_Owner__c,Org__c,peopleai__EngagementLevel__c,Customer_Heat__c,Inside_Owner__c,SE_Owner__c,Elevate_Service_Provider_Program__c,engagio__NumberOfPeople__c,engagio__EngagedPeople__c,engagio__FirstEngagementDate__c,engagio__EngagementMinutesLast30Days__c,engagio__EngagementMinutesLast3Months__c,engagio__EngagementMinutesLast7Days__c,engagio__IntentMinutesLast30Days__c,engagio__qualification_score__c,engagio__Status__c,engagio__MQADate__c,engagio__HighIntentKeywords_longtext__c,engagio__Competitive_Intent_Keywords_longtext__c,engagio__WebVisitsLast3Months__c,engagio__Top_Web_Traffic_URLs__c,engagio__pipeline_predict_score__c",
+          "type_of_extraction" : "jdbc",
+          "tmp_write_format" : "parquet",
+          "alias": "account",
+          "tmp_storage" : "output/salesforce"
+        }
+      ],
+      "query": "select * from account",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToRDB",
+          "url" :"*",
+          "driver": "org.postgresql.Driver",
+          "user": "",
+          "password" : "",
+          "database" : "*",
+          "table_name" : "sfdc.account_sparktest",
+          "operation" : "insert",
+          "cast_to_table_schema" :"true"
+        }
+      ]
+    },
+    "OKTA": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "format": "okta",
+          "alias": "okta",
+          "url": "https://debajit.okta.com",
+          "token": "",
+          "start": "2022-07-27T16:42:33Z",
+          "end": "2022-07-27T16:59:33Z",
+          "schema_location": "src/main/resources/schema",
+          "schema": "okta",
+          "batch_size": "2000"
+        }
+      ],
+      "query": "select * from okta",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        }
+      ]
+    },
+    "KAFKA": {
+      "class": "com.debajit.dataProcessor.processor.batch.fetch.BasicBatch",
+      "input": [
+        {
+          "format": "kafka",
+          "schema": "NQEEvent",
+          "alias": "nqe_event",
+          "commit": "false",
+          "topic": "*",
+          "bootstrap_servers": "*",
+          "group_id": "test",
+          "data_format": "json"
+        },
+        {
+          "format": "redis",
+          "host": "*",
+          "port": "6379",
+          "auth": "debajit",
+          "table": "person",
+          "alias": "person"
+        }
+      ],
+      "query": "select * from nqe_event cross join person",
+      "output": [
+        {
+          "query": "select bundleCode,sessionLearningMap.lm_name from #process",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        },
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        }
+      ]
+    },
+    "MONGO": {
+      "class": "com.debajit.dataProcessor.processor.batch.fetch.BasicBatch",
+      "input": [
+        {
+          "format": "mongo",
+          "uri": "*",
+          "db_name": "*",
+          "collection_name": "learning_objects",
+          "pipeline": "[{ $match: { type: \"something\", status: \"someValue\" }},{$limit : 5}]",
+          "alias": "lb"
+        }
+      ],
+      "query": "select * from lb",
+      "output": [
+        {
+          "query": "select id,content from #process limit 3"
+        }
+      ]
+    },
+    "ELASTIC": {
+      "class": "com.debajit.dataProcessor.processor.batch.fetch.BasicBatch",
+      "input": [
+        {
+          "format": "elastic",
+          "nodes": "*",
+          "port": "9200",
+          "index": "*",
+          "query": "{\"query\": {\"match_all\": {}}}",
+          "alias": "attendance"
+        }
+      ],
+      "query": "select * from attendance",
+      "output": [
+        {
+          "query": "select * from #process"
+        }
+      ]
+    },
+    "S3": {
+      "class": "com.debajit.dataProcessor.processor.batch.fetch.BasicBatch",
+      "input": [
+        {
+          "format": "s3",
+          "access_key": "",
+          "secret_key": "",
+          "bucket": "*",
+          "alias": "click"
+        }
+      ],
+      "query": "select * from click",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        }
+      ]
+    },
+    "RDB": {
+      "class": "com.debajit.dataProcessor.processor.batch.fetch.BasicBatch",
+      "input": [
+        {
+          "format": "rdb",
+          "url": "*",
+          "user": "",
+          "password": "",
+          "driver": "org.postgresql.Driver",
+          "query": "users",
+          "alias": "users"
+        },
+        {
+          "format": "rdb",
+          "url": "*",
+          "user": "",
+          "password": "",
+          "driver": "org.postgresql.Driver",
+          "query": "user_profile",
+          "alias": "user_profile"
+        },
+        {
+          "format": "rdb",
+          "url": "*",
+          "user": "",
+          "password": "",
+          "driver": "org.postgresql.Driver",
+          "query": "user_relations",
+          "alias": "user_relations"
+        },
+        {
+          "format": "rdb",
+          "url": "*",
+          "user": "",
+          "password": "",
+          "driver": "org.postgresql.Driver",
+          "query": "user_metadata",
+          "alias": "metadata"
+        }
+      ],
+      "query": "select * from metadata",
+      "output": [
+        {
+          "query": "select * from users",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        },
+        {
+          "query": "select * from user_profile",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        },
+        {
+          "query": "select * from user_relations",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToConsole"
+        }
+      ]
+    },
+    "REDIS": {
+      "class": "com.debajit.dataProcessor.processor.batch.fetch.BasicBatch",
+      "input": [
+        {
+          "format": "redis",
+          "host": "*",
+          "port": "6379",
+          "auth": "debajit",
+          "table": "person",
+          "alias": "person"
+        }
+      ],
+      "query": "select * from person",
+      "output": [
+        {
+          "query": "select * from #process"
+        }
+      ]
+    },
+    "BIGQUERY": {
+      "class": "com.debajit.dataProcessor.processor.batch.fetch.BasicBatch",
+      "input": [
+        {
+          "format": "bigquery",
+          "query": "SELECT * FROM ``",
+          "credential_file": "",
+          "project_id": "*",
+          "data_set": "*",
+          "alias": "ga_sessions_data"
+        }
+      ],
+      "query": "select * from ga_sessions_data",
+      "custom_process": "",
+      "output": [
+        {
+          "query": "select *, from_unixtime(visitId, 'dd-MM-yyyy') as _date, EXPLODE(hits) as _hits  from #process",
+          "partition_by": "_date",
+          "action_class": "com.debajit.dataProcessor.processor.batch.action.WriteToADLS",
+          "adls_path": "*",
+          "adls_access_key": ""
+        }
+      ]
+    }
+  }
+}

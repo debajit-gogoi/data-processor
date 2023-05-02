@@ -1,0 +1,30 @@
+{
+  "process": {
+    "actions": {
+      "O365TeamUserActivity": {
+        "isEnabled": "true",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "O365EmailActivityCount": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "O365EmailActivityUserDetail": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "O365TeamDeviceUsageUserDetail": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      }
+    }
+  }
+}

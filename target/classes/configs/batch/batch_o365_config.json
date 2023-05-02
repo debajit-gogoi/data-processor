@@ -1,0 +1,142 @@
+{
+  "appName": "BatchDriver",
+  "sessionType": "local[*]",
+  "process": {
+    "O365TeamUserActivity": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "uri": "https://graph.microsoft.com/v1.0/reports/getTeamsUserActivityUserDetail(date=#date)",
+          "format": "o365",
+          "token_uri": "https://login.microsoftonline.com/oauth2/v2.0/token",
+          "grant_type": "client_credentials",
+          "client_id": "",
+          "client_secret": "",
+          "scope": "https://graph.microsoft.com/.default",
+          "alias": "o365TeamUserActivity"
+        }
+      ],
+      "query": "Select `ReportRefreshDate` as reportRefreshDate , `UserId` as userId,`UserPrincipalName` as userPrincipalName,`LastActivityDate` as lastActivityDate,`IsDeleted` as isDeleted,`DeletedDate` as deletedDate,`AssignedProducts` as assignedProducts,`TeamChatMessageCount` as teamChatMessageCount,`PrivateChatMessageCount` as privateChatMessageCount,`CallCount` as callCount,`MeetingCount` as meetingCount,`MeetingsOrganizedCount` as meetingsOrganizedCount,`MeetingsAttendedCount` as meetingsAttendedCount,`AdHocMeetingsOrganizedCount` as adHocMeetingsOrganizedCount,`AdHocMeetingsAttendedCount` as adHocMeetingsAttendedCount,`ScheduledOnetimeMeetingsOrganizedCount` as scheduledOneTimeMeetingsOrganizedCount,`ScheduledOnetimeMeetingsAttendedCount` as scheduledOneTimeMeetingsAttendedCount,`ScheduledRecurringMeetingsOrganizedCount` as scheduledRecurringMeetingsOrganizedCount,`ScheduledRecurringMeetingsAttendedCount` as scheduledRecurringMeetingsAttendedCount,`AudioDuration` as audioDuration,`VideoDuration` as videoDuration,`ScreenShareDuration` as screenShareDuration,`AudioDurationInSeconds` as audioDurationInSeconds,`VideoDurationInSeconds` as videoDurationInSeconds,`ScreenShareDurationInSeconds` as screenShareDurationInSeconds,`HasOtherAction` as hasAnotherAction,`UrgentMessages` as urgentMessages,`PostMessages` as postMessages,`TenantDisplayName` as tenantDisplayName,`SharedChannelTenantDisplayNames` as sharedChannelDisplayName,`ReplyMessages` as replyMessages,`IsLicensed` as isLicensed,`ReportPeriod` as reportPeriod from o365TeamUserActivity",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "wan_only": "true",
+          "port": "9200",
+          "nodes": "*",
+          "index": "o365teamuseractivity",
+          "user": "",
+          "password": ""
+        }
+      ]
+    },
+    "O365EmailActivityCount": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "uri": "https://graph.microsoft.com/v1.0/reports/getEmailActivityCounts(period='D7')",
+          "format": "o365",
+          "alias": "o365EmailActivityCount",
+          "token_uri": "https://login.microsoftonline.com/oauth2/v2.0/token",
+          "grant_type": "client_credentials",
+          "client_id": "",
+          "client_secret": "",
+          "scope": "https://graph.microsoft.com/.default"
+        }
+      ],
+      "query": "Select `ReportRefreshDate` as reportRefreshDate,`Send` as send,`Receive` as receive,`Read` as read,`MeetingCreated` as meetingCreated,`MeetingInteracted` as meetingInteracted,`ReportDate` as reportDate,`ReportPeriod` as reportPeriod from o365EmailActivityCount",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "upsert": "upsert",
+          "wan_only": "true",
+          "port": "9200",
+          "mapping_id": "reportDate",
+          "nodes": "*",
+          "index": "o365emailactivitycount",
+          "user": "",
+          "password": ""
+        }
+      ]
+    },
+    "O365EmailActivityUserDetail": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "uri": "https://graph.microsoft.com/v1.0/reports/getEmailActivityUserDetail(period='D7')",
+          "format": "o365",
+          "alias": "o365EmailActivityUserDetail",
+          "token_uri": "https://login.microsoftonline.com/oauth2/v2.0/token",
+          "grant_type": "client_credentials",
+          "client_id": "",
+          "client_secret": "",
+          "scope": "https://graph.microsoft.com/.default"
+        }
+      ],
+      "query": " Select `ReportRefreshDate` as reportRefreshDate,`UserPrincipalName` as userPrincipalName,`DisplayName` as displayName,`IsDeleted` as isDeleted,`DeletedDate` as deletedDate,`LastActivityDate` as lastActivityDate,`SendCount` as sendCount,`ReceiveCount` as receiveCount,`ReadCount` as readCount,`MeetingCreatedCount` as meetingCreatedCount,`MeetingInteractedCount` as meetingInteractedCount,`AssignedProducts` as assignedProducts,`ReportPeriod` as reportPeriod from o365EmailActivityUserDetail",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "upsert": "upsert",
+          "wan_only": "true",
+          "retryOnConflict": "2",
+          "port": "9200",
+          "mapping_id": "userPrincipalName",
+          "nodes": "*",
+          "index": "o365emailactivityuserdetail",
+          "user": "",
+          "password": ""
+        }
+      ]
+    },
+    "O365TeamDeviceUsageUserDetail": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "uri": "https://graph.microsoft.com/v1.0/reports/getTeamsDeviceUsageUserDetail(period='D7')",
+          "format": "o365",
+          "alias": "o365TeamDeviceUsageUserDetail",
+          "token_uri": "https://login.microsoftonline.com/oauth2/v2.0/token",
+          "grant_type": "client_credentials",
+          "client_id": "",
+          "client_secret": "",
+          "scope": "https://graph.microsoft.com/.default"
+        }
+      ],
+      "query": "Select `ReportRefreshDate` as reportRefreshDate,`UserId` as userId,`UserPrincipalName` as userPrincipalName,`LastActivityDate` as lastActivityDate,`IsDeleted` as isDeleted,`DeletedDate` as deletedDate,`UsedWeb` as usedWeb,`UsedWindowsPhone` as usedWindowsPhone,`UsediOS` as usedIos,`UsedMac` as usedMac,`UsedAndroidPhone` as usedAndroidPhone,`UsedWindows` as usedWindows,`UsedChromeOS` as usedChromeOS,`UsedLinux` usedLinux,`IsLicensed` as isLicensed,`ReportPeriod` as reportPeriod from o365TeamDeviceUsageUserDetail",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "upsert": "upsert",
+          "wan_only": "true",
+          "retryOnConflict": "2",
+          "port": "9200",
+          "mapping_id": "userPrincipalName",
+          "nodes": "*",
+          "index": "o365teamdeviceusageuserdetail",
+          "user": "",
+          "password": ""
+        }
+      ]
+    }
+  }
+}

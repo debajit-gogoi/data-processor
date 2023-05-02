@@ -1,0 +1,36 @@
+{"type":"record",
+  "name":"meeting",
+  "namespace":"com.debajit",
+  "fields":[
+    {"name":"event","type":["string","null"]},
+    {"name":"event_ts","type":["long","null"]},
+    {"name":"payload",
+      "type": ["null",{
+        "type": "record",
+        "name": "payloadRecord",
+        "fields": [
+          {"name": "account_id", "type": ["string", "null"] },
+          {"name":"object",
+            "type": ["null",{
+              "type": "record",
+              "name": "objectRecord",
+              "fields": [
+                {"name": "duration", "type": ["int", "null"] },
+                {"name": "start_time", "type": ["string", "null"]},
+                {"name": "timezone", "type": ["string", "null"]},
+                {"name": "end_time", "type": ["null", "string"]},
+                {"name": "topic", "type": ["string", "null"]},
+                {"name": "id", "type": ["string", "null"]},
+                {"name": "type", "type": ["int", "null"]},
+                {"name": "uuid", "type": ["string", "null"]},
+                {"name": "host_id", "type": ["string", "null"]}
+              ]
+            }],
+            "default": "null"
+          }
+        ]
+      }],
+      "default": "null"
+    }
+  ]
+}

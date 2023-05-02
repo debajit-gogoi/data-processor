@@ -1,0 +1,48 @@
+{
+  "process": {
+    "actions": {
+      "ZoomMeetingdata": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "5 seconds",
+          "checkpoint_dir": "output/zoom/meeting"
+        }
+      },
+      "ZoomParticipantdata": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "5 seconds",
+          "checkpoint_dir": "output/zoom/participant"
+        }
+      },
+      "ZoomParticipantDevice": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "10 seconds",
+          "checkpoint_dir": "output/zoom/participantDevice"
+        }
+      },
+      "ZoomParticipantDeviceDataElastic": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "10 seconds",
+          "checkpoint_dir": "output/zoom/participantDeviceElastic"
+        }
+      },
+      "ZoomParticipantCountData": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "10 seconds",
+          "checkpoint_dir": "output/zoom/participantCountData"
+        }
+      },
+      "ZoomParticipantDeviceFailData": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "2 minutes",
+          "checkpoint_dir": "output/zoom/participantDeviceFailData"
+        }
+      }
+    }
+  }
+}

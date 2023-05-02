@@ -1,0 +1,24 @@
+{
+  "process": {
+    "actions": {
+      "KnowBe4Enrollment": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "KnowBe4Campaigns": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      },
+      "KnowBe4Users": {
+        "isEnabled": "false",
+        "properties": {
+          "enable_insert": "true"
+        }
+      }
+    }
+  }
+}

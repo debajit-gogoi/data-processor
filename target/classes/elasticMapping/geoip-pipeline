@@ -1,0 +1,11 @@
+PUT _ingest/pipeline/geoip
+{
+  "description" : "Add geoip info",
+  "processors" : [
+    {
+      "geoip" : {
+        "field" : "ip"
+      }
+    }
+  ]
+}

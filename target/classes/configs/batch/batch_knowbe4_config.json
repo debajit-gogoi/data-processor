@@ -1,0 +1,102 @@
+{
+  "appName": "BatchDriver",
+  "sessionType": "local[*]",
+  "process": {
+    "KnowBe4Enrollment": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "format": "knowBe4",
+          "token": "",
+          "page-size": "500",
+          "tmp-storage": "output/knowbe4",
+          "alias": "knowbe4",
+          "uri": "https://us.api.knowbe4.com/v1/training/enrollments"
+        }
+      ],
+      "query": "select * from knowBe4",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "upsert": "upsert",
+          "wan_only": "true",
+          "port": "9200",
+          "mapping_id": "enrollment_id",
+          "nodes": "*",
+          "index": "knowbe4enrollments",
+          "user": "",
+          "password": ""
+        }
+      ]
+    },
+    "KnowBe4Campaigns": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "format": "knowBe4",
+          "token": "",
+          "page-size": "500",
+          "alias": "knowbe4campaigns",
+          "tmp-storage": "output/knowbe4",
+          "uri": "https://us.api.knowbe4.com/v1/training/campaigns"
+        }
+      ],
+      "query": "select * from knowbe4campaigns",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "upsert": "upsert",
+          "wan_only": "true",
+          "port": "9200",
+          "mapping_id": "campaign_id",
+          "nodes": "*",
+          "index": "knowbe4campaigns",
+          "user": "",
+          "password": ""
+        }
+      ]
+    },
+    "KnowBe4Users": {
+      "class": "com.debajit.dataProcessor.processor.batchFetch.BasicBatch",
+      "input": [
+        {
+          "format": "knowBe4",
+          "token": "*",
+          "page-size": "500",
+          "alias": "knowbe4users",
+          "tmp-storage": "output/knowbe4",
+          "uri": "https://us.api.knowbe4.com/v1/users"
+        }
+      ],
+      "query": "select * from knowbe4users",
+      "output": [
+        {
+          "query": "select * from #process",
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToConsole"
+        },
+        {
+          "action_class": "com.debajit.dataProcessor.processor.action.WriteToElastic",
+          "query": "select * from #process",
+          "upsert": "upsert",
+          "wan_only": "true",
+          "port": "9200",
+          "mapping_id": "id",
+          "nodes": "*",
+          "index": "knowbe4users",
+          "user": "",
+          "password": ""
+        }
+      ]
+    }
+  }
+}

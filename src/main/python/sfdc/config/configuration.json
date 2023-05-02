@@ -1,0 +1,8 @@
+{
+  "object_name": "Case",
+  "buffer_size": 20000,
+  "parallelism": 4,
+  "field_names": "Id,SystemModstamp",
+  "start_time": "2022-07-01T00:00:00",
+  "end_time": "2022-08-31T23:59:59"
+}

@@ -1,0 +1,41 @@
+{"type":"record",
+  "name":"citi",
+  "namespace":"com.citibank",
+  "fields":[
+    {"name":"record_type","type":["string","null"]},
+    {"name":"client_id","type":["string","null"]},
+    {"name":"client_name","type":["string","null"]},
+    {"name":"country_code","type":["string","null"]},
+    {"name":"source","type":["string","null"]},
+    {"name":"client_action","type":["string","null"]},
+    {"name":"request_id","type":["string","null"]},
+    {"name":"payload",
+      "type": ["null",{
+        "type": "record",
+        "name": "payloadRecord",
+        "fields": [
+          {"name": "account_id", "type": ["string", "null"] },
+          {"name":"object",
+            "type": ["null",{
+              "type": "record",
+              "name": "objectRecord",
+              "fields": [
+                {"name": "duration", "type": ["int", "null"] },
+                {"name": "start_time", "type": ["string", "null"]},
+                {"name": "timezone", "type": ["string", "null"]},
+                {"name": "end_time", "type": ["null", "string"]},
+                {"name": "topic", "type": ["string", "null"]},
+                {"name": "id", "type": ["string", "null"]},
+                {"name": "type", "type": ["int", "null"]},
+                {"name": "uuid", "type": ["string", "null"]},
+                {"name": "host_id", "type": ["string", "null"]}
+              ]
+            }],
+            "default": "null"
+          }
+        ]
+      }],
+      "default": "null"
+    }
+  ]
+}

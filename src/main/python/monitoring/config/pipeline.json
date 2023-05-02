@@ -1,0 +1,42 @@
+{
+  "realtime": [
+    {
+      "name": "OKTA"
+    },
+    {
+      "name": "VDI_N_SLACK"
+    },
+    {
+      "name": "VPN"
+    },
+    {
+      "name": "ZOOM_META"
+    },
+    {
+      "name": "ZOOM_RAW",
+      "errorLogPatterns": [
+        "This member will leave the group because consumer poll timeout has expired. This means the time between subsequent calls to poll() was longer than the configured max.poll.interval.ms, which typically implies that the poll loop is spending too much time processing messages."
+      ]
+    }
+  ],
+  "batch": [
+    {
+      "name": "O365",
+      "scheduledAt": [
+        "01:00"
+      ]
+    },
+    {
+      "name": "KNOWBE4",
+      "scheduledAt": [
+        "03:00"
+      ]
+    },
+    {
+      "name": "AWS",
+      "scheduledAt": [
+        "05:00"
+      ]
+    }
+  ]
+}

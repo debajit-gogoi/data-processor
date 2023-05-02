@@ -1,0 +1,170 @@
+{
+  "fields": [{
+      "type": "string",
+      "field": "source_cluster_uuid",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "container_name",
+      "optional": true
+    },
+    {
+      "type": "string",
+      "field": "container_uuid"
+    },{
+      "type": "string",
+      "field": "accountid",
+      "optional": true
+    },
+    {
+      "type": "string",
+      "field": "replication_factor",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "compression_str",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "compression_type",
+      "optional": true
+    },{
+      "type": "boolean",
+      "field": "cache_deduplication",
+      "optional": true
+    }
+    ,{
+      "type": "string",
+      "field": "capacity_deduplication_str",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "cache_deduplication_str",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "erasure_coding_str",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "erasure_coding",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "physical_free_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "physical_usage_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "logical_free_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "logical_usage_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "logical_capacity_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "reserved_capacity_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "physical_capacity_bytes",
+      "optional": true
+    }
+    ,{
+      "type": "double",
+      "field": "controller_iops",
+      "optional": true
+    }
+    ,{
+      "type": "double",
+      "field": "controller_io_bw_kbps",
+      "optional": true
+    }
+    ,{
+      "type": "double",
+      "field": "controller_io_latency_ms",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "controller_total_io_size_kbytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "controller_total_io_time_usecs",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "controller_timespan_usecs",
+      "optional": true
+    }
+    ,{
+      "type": "double",
+      "field": "storage_clone_usage_bytes",
+      "optional": true
+    }
+    ,{
+      "type": "double",
+      "field": "storage_dedup_usage_bytes",
+      "optional": true
+    }
+    ,{
+      "type": "double",
+      "field": "storage_garbage_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "storage_garbage_dead_extent_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "storage_garbage_fallocated_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "storage_garbage_internal_bytes",
+      "optional": true
+    }
+    ,{
+      "type": "double",
+      "field": "storage_garbage_partial_extent_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "storage_recycle_bin_usage_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "storage_snapshot_reclaimable_bytes",
+      "optional": true
+    },{
+      "type": "double",
+      "field": "storage_live_usage_bytes",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "timestamp_clone_usage",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "timestamp",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "asp_accountid",
+      "optional": true
+    },{
+      "type": "string",
+      "field": "org",
+      "optional": true
+    }
+],
+  "type": "struct"
+}

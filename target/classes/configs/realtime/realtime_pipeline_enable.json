@@ -1,0 +1,50 @@
+{
+  "process": {
+    "actions": {
+      "OKTA_ACCOUNT": {
+        "isEnabled": "false",
+        "properties": {
+          "window": "1 minute",
+          "checkpoint_dir": "output"
+        }
+      },
+      "SFDC_ACCOUNT": {
+        "isEnabled": "true",
+        "properties": {
+          "window": "5 seconds",
+          "checkpoint_dir": "checkpoints/salesforce"
+        }
+      },
+      "KAFKA_REAL": {
+        "isEnabled": "false",
+        "properties": {
+          "window": "1 minute"
+        }
+      },
+      "PROGRESS": {
+        "isEnabled": "false",
+        "properties": {
+          "rate_per_partition": "20",
+          "window": "10",
+          "backpressure_enabled": "true",
+          "consumer_cache_enabled": "false"
+        }
+      },
+      "KAFKA_REAL_STREAM": {
+        "isEnabled": "false",
+        "properties": {
+          "rate_per_partition": "20",
+          "window": "10",
+          "backpressure_enabled": "true",
+          "consumer_cache_enabled": "false"
+        }
+      },
+      "FILE_REAL": {
+        "isEnabled": "false",
+        "properties": {
+          "window": "1 minute"
+        }
+      }
+    }
+  }
+}

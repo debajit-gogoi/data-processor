@@ -1,0 +1,175 @@
+{
+  "type": "record",
+  "name": "participant",
+  "namespace": "com.debajit",
+  "fields": [{
+    "name": "event",
+    "type": [
+      "string",
+      "null"
+    ]
+  },
+    {
+      "name": "event_ts",
+      "type": [
+        "long",
+        "null"
+      ]
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "payloadRecord",
+          "fields": [{
+            "name": "account_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+            {
+              "name": "object",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "objectRecord",
+                  "fields": [{
+                    "name": "uuid",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                    {
+                      "name": "id",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "type",
+                      "type": [
+                        "int",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "topic",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "host_id",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "duration",
+                      "type": [
+                        "int",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "timezone",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "participant",
+                      "type": [
+                        "null",
+                        {
+                          "type": "record",
+                          "name": "participantRecord",
+                          "fields": [{
+                            "name": "user_id",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                            {
+                              "name": "user_name",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "registrant_id",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "participant_user_id",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "id",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "email",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "join_time",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "leave_reason",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "leave_time",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "default": "null"
+                    }
+                  ]
+                }
+              ],
+              "default": "null"
+            }
+          ]
+        }
+      ],
+      "default": "null"
+    }
+  ]
+}

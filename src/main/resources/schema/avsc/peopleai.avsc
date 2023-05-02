@@ -1,0 +1,540 @@
+{
+  "name": "peopleai",
+  "type": "record",
+  "namespace": "com.debajit",
+  "fields": [
+    {
+      "name": "all_day",
+      "type": "boolean",
+      "default": null
+    },
+    {
+      "name": "campaigns",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "default": []
+    },
+    {
+      "name": "created",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "crm_status",
+      "type": [
+        "null",
+        {
+          "name": "crm_status_record",
+          "type": "record",
+          "fields": [
+            {
+              "name": "account",
+              "type": [
+                "null",
+                {
+                  "name": "crm_status_record_account_record",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "crm_id",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "name",
+                      "type": ["null","string"],
+                      "default": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "crm_id",
+              "type": ["null","string"],
+              "default": null
+            },
+            {
+              "name": "lead",
+              "type": [
+                "null",
+                {
+                  "name": "lead_record",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "crm_id",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "email",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "lead_stage",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "name",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "phone",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "title",
+                      "type": ["null","string"],
+                      "default": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "matched_to",
+              "type": ["null","string"],
+              "default": null
+            },
+            {
+              "name": "opportunity",
+              "type": [
+                "null",
+                {
+                  "name": "opportunity_record",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "account",
+                      "type": [
+                        "null",
+                        {
+                          "type": "record",
+                          "name": "opportunity_account_record",
+                          "fields": [
+                            {
+                              "name": "crm_id",
+                              "type": ["null","string"],
+                              "default": null
+                            },
+                            {
+                              "name": "name",
+                              "type": ["null","string"],
+                              "default": null
+                            }
+                          ],
+                          "default": null
+                        }
+                      ]
+                    },
+                    {
+                      "name": "crm_id",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "name",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "stage_name",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "stage_rank",
+                      "type": ["null","long"],
+                      "default": null
+                    }
+                  ],
+                  "default": null
+                }
+              ]
+            },
+            {
+              "name": "push_time",
+              "type": ["null","string"],
+              "default": null
+            },
+            {
+              "name": "pushed",
+              "type": ["null","boolean"],
+              "default": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": ["null","string"],
+      "default": null
+    },
+    {
+      "name": "duration",
+      "type": "long",
+      "default": null
+    },
+    {
+      "name": "end_time",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "experimental",
+      "type": [
+        "null",
+        {
+          "name": "experimental_record",
+          "type": "record",
+          "fields": [
+            {
+              "name": "internal_match_status",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "internal_match_status_record",
+                  "fields": [
+                    {
+                      "name": "crm_id",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "lead",
+                      "type": [
+                        "null",
+                        {
+                          "name": "experimental_lead_record",
+                          "type": "record",
+                          "fields": [
+                            {
+                              "name": "crm_id",
+                              "type": ["null","string"],
+                              "default": null
+                            },
+                            {
+                              "name": "email",
+                              "type": ["null","string"],
+                              "default": null
+                            },
+                            {
+                              "name": "lead_stage",
+                              "type": ["null","string"],
+                              "default": null
+                            },
+                            {
+                              "name": "name",
+                              "type": ["null","string"],
+                              "default": null
+                            },
+                            {
+                              "name": "phone",
+                              "type": ["null","string"],
+                              "default": null
+                            },
+                            {
+                              "name": "title",
+                              "type": ["null","string"],
+                              "default": null
+                            }
+                          ],
+                          "default": null
+                        }
+                      ]
+                    },
+                    {
+                      "name": "matched_to",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "push_time",
+                      "type": ["null","string"],
+                      "default": null
+                    },
+                    {
+                      "name": "pushed",
+                      "type": ["null","boolean"],
+                      "default": null
+                    }
+                  ],
+                  "default": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "follow_up_email_source_id",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "ingest_timestamp",
+      "type": ["null","string"],
+      "default": null
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "outbound_phone_number",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "participants",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": [
+            "null",
+            {
+              "name": "participants_record",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "crm_id",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "email",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "matched_as",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "name",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "peopleai_id",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "phone",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "role",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "status",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "team",
+                  "type": {
+                    "name": "team",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "crm_id",
+                        "type": ["null","string"],
+                        "default": null
+                      },
+                      {
+                        "name": "name",
+                        "type": ["null","string"],
+                        "default": null
+                      }
+                    ],
+                    "default": null
+                  }
+                },
+                {
+                  "name": "time_spent",
+                  "type": ["null","long"],
+                  "default": null
+                },
+                {
+                  "name": "title",
+                  "type": ["null","string"],
+                  "default": null
+                },
+                {
+                  "name": "type",
+                  "type": ["null","string"],
+                  "default": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "source_id",
+      "type": ["null","string"],
+      "default": null
+    },
+    {
+      "name": "start_time",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "stats",
+      "type": [
+        "null",
+        {
+          "name": "stats_record",
+          "type": "record",
+          "fields": [
+            {
+              "name": "accepted_participants",
+              "type": ["null","long"],
+              "default": null
+            },
+            {
+              "name": "contacts_participants",
+              "type": ["null","long"],
+              "default": null
+            },
+            {
+              "name": "declined_participants",
+              "type": ["null","long"],
+              "default": null
+            },
+            {
+              "name": "external_participants",
+              "type": ["null","long"],
+              "default": null
+            },
+            {
+              "name": "internal_participants",
+              "type": ["null","long"],
+              "default": null
+            },
+            {
+              "name": "tentative_participants",
+              "type": ["null","long"],
+              "default": null
+            },
+            {
+              "name": "total_participants",
+              "type": ["null","long"],
+              "default": null
+            },
+            {
+              "name": "participants_on_to_line",
+              "type": [
+                "null",
+                "long"
+              ],
+              "default": null
+            },
+            {
+              "name": "participants_on_cc_line",
+              "type": [
+                "null",
+                "long"
+              ],
+              "default": null
+            }
+          ],
+          "default": null
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "summary",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "tags",
+      "type": ["null",{
+        "type": "array",
+        "items": "string"
+      }],
+      "default": null
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "default": null
+    },
+    {
+      "name": "type",
+      "type": ["null","string"],
+      "default": null
+    },
+    {
+      "name": "uid",
+      "type": ["null","string"],
+      "default": null
+    },
+    {
+      "name": "in_reply_to_source_id",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "attachment_file_names",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "subject",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "followed_meeting_source_id",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "reply_received",
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "default": null
+    }
+  ]
+}
